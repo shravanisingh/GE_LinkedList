@@ -13,6 +13,14 @@ public class LinkedList {
         }
         current.next = newNode;
     }
+    void pop() {
+        if (head != null) {
+            head = head.next;
+        } else {
+            System.out.println("List is empty");
+        }
+    }
+
     void insertAtPosition(int position, int data) {
         Node newNode = new Node(data);
 

@@ -49,6 +49,18 @@ public class LinkedList {
         }
         return false;
     }
+    void insertAfterValue(int value, int data) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == value) {
+                Node newNode = new Node(data);
+                newNode.next = current.next;
+                current.next = newNode;
+                return;  // Inserted after the node with the given value
+            }
+            current = current.next;
+        }
+    }
 
     void insertAtPosition(int position, int data) {
         Node newNode = new Node(data);
@@ -58,8 +70,10 @@ public class LinkedList {
             head = newNode;
             return;
         }
+
         Node current = head;
         int index = 0;
+
         while (current != null && index < position - 1) {
             current = current.next;
             index++;
@@ -70,6 +84,7 @@ public class LinkedList {
             current.next = newNode;
         }
     }
+
     void display() {
         Node current = head;
         while (current != null) {

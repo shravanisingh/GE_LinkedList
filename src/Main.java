@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        Node startNode = new Node(56);
-        LinkedList list = new LinkedList(startNode);
+        LinkedList list = new LinkedList();
 
-        list.append(30);
-        list.append(70);
-
-        list.printList();
+        list.head = new Node(56);
+        list.head.next = new Node(70);
+        list.display();
+        list.insertAtPosition(1, 30);
+        list.display();
     }
 }

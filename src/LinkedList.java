@@ -20,6 +20,25 @@ public class LinkedList {
             System.out.println("List is empty");
         }
     }
+    void popLast() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node current = head;
+        while (current.next != null && current.next.next != null) {
+            current = current.next;
+        }
+
+
+        current.next = null;
+    }
 
     void insertAtPosition(int position, int data) {
         Node newNode = new Node(data);

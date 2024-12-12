@@ -7,5 +7,7 @@ public class Main {
         list.display();
         list.insertAtPosition(1, 30);
         list.display();
+        list.pop();
+        list.display();
     }
 }

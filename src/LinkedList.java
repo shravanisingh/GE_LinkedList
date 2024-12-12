@@ -39,6 +39,16 @@ public class LinkedList {
 
         current.next = null;
     }
+    boolean search(int key) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 
     void insertAtPosition(int position, int data) {
         Node newNode = new Node(data);
@@ -48,10 +58,8 @@ public class LinkedList {
             head = newNode;
             return;
         }
-
         Node current = head;
         int index = 0;
-
         while (current != null && index < position - 1) {
             current = current.next;
             index++;
@@ -62,7 +70,6 @@ public class LinkedList {
             current.next = newNode;
         }
     }
-
     void display() {
         Node current = head;
         while (current != null) {

@@ -1,28 +1,46 @@
 public class LinkedList {
     Node head;
 
-    public LinkedList(Node head) {
-        this.head = head;
-    }
-
-    public void append(int value) {
-        Node newNode = new Node(value);
+    void append(int data) {
+        Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
-        } else {
-            Node temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = newNode;
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+    void insertAtPosition(int position, int data) {
+        Node newNode = new Node(data);
+
+        if (position == 0) {
+            newNode.next = head;
+            head = newNode;
+            return;
+        }
+
+        Node current = head;
+        int index = 0;
+
+        while (current != null && index < position - 1) {
+            current = current.next;
+            index++;
+        }
+
+        if (current != null) {
+            newNode.next = current.next;
+            current.next = newNode;
         }
     }
 
-    public void printList() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
+    void display() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
         }
         System.out.println("null");
     }
